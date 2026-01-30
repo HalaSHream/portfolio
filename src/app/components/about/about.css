@@ -1,0 +1,104 @@
+#about {
+  padding: 120px 0;
+  background: #f7eef6; /* خلفية ناعمة قريبة من الفوتر */
+}
+
+/* Container */
+.about-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+.about-card {
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  padding: 60px;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(106, 5, 114, 0.08);
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Text */
+.about-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #6a0572;
+  margin-bottom: 25px;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+.about-content p span {
+  color: #ffafcc;
+  font-weight: 700;
+}
+
+.about-content p strong {
+  color: #6a0572;
+}
+
+.about-content .light {
+  color: #666;
+}
+
+/* Visual */
+.about-visual {
+  position: relative;
+}
+
+/* Shapes – ناعمة وبسيطة */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  filter: blur(2px);
+}
+
+.shape.one {
+  width: 220px;
+  height: 220px;
+  background: #ffc8dd;
+  top: 30px;
+  right: 40px;
+}
+
+.shape.two {
+  width: 140px;
+  height: 140px;
+  background: #cdb4db;
+  bottom: 40px;
+  right: 120px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-card {
+    grid-template-columns: 1fr;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .about-visual {
+    height: 200px;
+  }
+
+  .shape.one,
+  .shape.two {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}

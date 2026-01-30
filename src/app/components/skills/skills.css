@@ -1,0 +1,147 @@
+/* ===== Skills Section ===== */
+#skills {
+  padding: 110px 0;
+  background: linear-gradient(135deg, #f3ecf7, #ffeaf2);
+  text-align: center;
+  overflow: hidden;
+}
+
+#skills h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #6a0572;
+  margin-bottom: 55px;
+}
+
+/* ===== Grid: 5 skills per row ===== */
+.skills-grid {
+  width: 85%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+/* ===== Skill Card ===== */
+.skill {
+  position: relative;
+  padding: 22px 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  font-weight: 700;
+  color: #6a0572;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: default;
+  box-shadow: 0 14px 32px rgba(199, 125, 255, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Soft border glow */
+.skill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ffafcc, #cdb4db);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Font Awesome icons */
+.skill i {
+  font-size: 28px;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* SVG icons */
+.skill .svg-icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Hover effects */
+.skill:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 22px 45px rgba(199, 125, 255, 0.55);
+}
+
+.skill:hover::before {
+  opacity: 1;
+}
+
+.skill:hover i,
+.skill:hover .svg-icon {
+  transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* ===== Icon Colors (Font Awesome) ===== */
+
+/* Programming */
+.fa-code { color: #00599c; }          /* C++ */
+.fa-java { color: #f89820; }
+.fa-php { color: #777bb3; }
+.fa-python { color: #3776ab; }
+
+/* Frontend */
+.fa-html5 { color: #e34f26; }
+.fa-css3-alt { color: #1572b6; }
+.fa-js { color: #f7df1e; }
+.fa-angular { color: #dd0031; }
+.fa-react { color: #61dafb; }
+.fa-bootstrap { color: #7952b3; }
+
+/* Backend */
+.fa-node-js { color: #339933; }
+.fa-laravel { color: #ff2d20; }
+
+/* Testing */
+.fa-vial { color: #43b02a; }           /* Selenium */
+.fa-flask { color: #2c2c2c; }          /* Playwright */
+.fa-check-double { color: #25a162; }   /* JUnit */
+
+/* Tools */
+.fa-git-alt { color: #f05032; }
+.fa-github { color: #181717; }
+.fa-database { color: #00758f; }       /* MySQL */
+.fa-figma { color: #f24e1e; }
+.fa-jenkins { color: #d24939; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #skills h2 {
+    font-size: 30px;
+  }
+}
+
+.skill-icon{
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
