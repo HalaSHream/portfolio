@@ -1,21 +1,48 @@
 /* ===== Projects Section ===== */
 #projects {
   padding: 100px 0;
-  background: linear-gradient(135deg, #f3ecf7, #ffeaf2);
+  background: var(--gradient-soft);
+  position: relative;
+  overflow: hidden;
 }
 
 #projects .container {
   width: 90%;
   margin: auto;
-  text-align: center;
+  max-width: 1200px;
+  text-align: left;
 }
 
-#projects h2 {
-  font-size: 42px;
-  font-weight: 900;
-  color: #6a0572;
-  margin-bottom: 60px;
+.projects-header {
+  margin-bottom: 50px;
+  --header-delay: 0s;
 }
+
+.projects-header h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-lavender);
+  margin: 0 0 12px;
+}
+
+.projects-header p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  max-width: 560px;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.projects-header > * {
+  opacity: 0;
+  animation: fade-up 0.75s ease both;
+  animation-delay: calc(var(--header-delay) + var(--item-delay, 0s));
+}
+
+.projects-header > :nth-child(1) { --item-delay: 0.05s; }
+.projects-header > :nth-child(2) { --item-delay: 0.12s; }
+.projects-header > :nth-child(3) { --item-delay: 0.2s; }
+
 
 /* ===== Grid ===== */
 .projects-grid {
@@ -26,90 +53,244 @@
 
 /* ===== Card ===== */
 .project-card {
-  background: rgba(255, 255, 255, 0.88);
-  padding: 32px 26px;
-  border-radius: 26px;
-  box-shadow: 0 18px 40px rgba(199, 125, 255, 0.35);
-  transition: all 0.4s ease;
+  background: var(--surface-alt);
+  border-radius: 24px;
+  padding: 28px 28px 26px;
+  box-shadow: 0 20px 45px var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fade-up-card 0.8s ease both;
+  animation-delay: calc(0.35s + (var(--card-index, 0) * 0.25s));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform: translateY(var(--card-offset, 0));
+  --card-base-delay: calc(0.45s + (var(--card-index, 0) * 0.25s));
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: var(--gradient-accent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: -40% -20%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-60%);
+  animation: card-sheen 8s ease-in-out infinite;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .project-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 28px 55px rgba(199, 125, 255, 0.55);
+  transform: translateY(calc(var(--card-offset, 0) - 10px));
+  box-shadow: 0 28px 60px var(--shadow-strong);
 }
 
-/* ===== Text ===== */
-.project-card h3 {
-  font-size: 22px;
-  font-weight: 800;
-  color: #6a0572;
-  margin-bottom: 14px;
-}
+.project-card:nth-child(1) { --card-index: 0; }
+.project-card:nth-child(2) { --card-index: 1; }
+.project-card:nth-child(3) { --card-index: 2; }
+.project-card:nth-child(odd) { --card-offset: -12px; }
+.project-card:nth-child(even) { --card-offset: 12px; }
 
-.project-card p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #444;
-}
-
-.highlight {
-  font-weight: 800;
-  color: #6a0572;
-}
-
-/* ===== Tools Box ===== */
-.tools-box {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid #eee;
-}
-
-.tools {
+.project-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  position: relative;
+  opacity: 0;
+  animation: fade-up 0.55s ease both;
+  animation-delay: var(--card-base-delay);
 }
 
-/* Tool */
-.tool {
+.project-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-mauve), transparent);
+  opacity: 0.6;
+}
+
+.project-tag,
+.project-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.project-tag {
+  background: rgba(201, 122, 138, 0.18);
+  color: var(--color-mauve);
+  border: 1px solid rgba(201, 122, 138, 0.35);
+}
+
+.project-badge {
+  background: rgba(155, 126, 189, 0.18);
+  color: var(--color-lavender);
+  border: 1px solid rgba(155, 126, 189, 0.35);
+}
+
+.project-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0 0 12px;
+  opacity: 0;
+  animation: fade-up 0.55s ease both;
+  animation-delay: calc(var(--card-base-delay) + 0.08s);
+}
+
+.project-summary {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-ink-muted);
+  margin: 0 0 12px;
+  opacity: 0;
+  animation: fade-up 0.55s ease both;
+  animation-delay: calc(var(--card-base-delay) + 0.16s + (var(--summary-index, 0) * 0.07s));
+}
+
+.project-card .project-summary:nth-of-type(1) { --summary-index: 0; }
+.project-card .project-summary:nth-of-type(2) { --summary-index: 1; }
+
+.project-summary strong {
+  color: var(--color-ink);
+}
+
+.project-tools {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 22px;
+  opacity: 0;
+  animation: fade-up 0.55s ease both;
+  animation-delay: calc(var(--card-base-delay) + 0.28s);
+}
+
+.tool-pill {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-soft);
+  font-size: 13px;
   font-weight: 600;
-  color:  #6a0572;
+  color: var(--color-ink);
+  opacity: 0;
+  animation: fade-up 0.45s ease both;
+  animation-delay: calc(var(--card-base-delay) + 0.36s + (var(--tool-index, 0) * 0.05s));
 }
 
-.tool i {
-  font-size: 22px;
-  color: #f24e1e; /* Figma default color */
+.project-tools .tool-pill:nth-child(1) { --tool-index: 0; }
+.project-tools .tool-pill:nth-child(2) { --tool-index: 1; }
+.project-tools .tool-pill:nth-child(3) { --tool-index: 2; }
+.project-tools .tool-pill:nth-child(4) { --tool-index: 3; }
+
+.tool-pill i {
+  color: var(--color-mauve);
 }
 
-/* ===== Project Links Buttons ===== */
-.project-links, .tools .project-link {
+.project-actions {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 15px;
+  gap: 12px;
+  opacity: 0;
+  animation: fade-up 0.55s ease both;
+  animation-delay: calc(var(--card-base-delay) + 0.48s);
 }
 
 .project-link {
-  padding: 6px 16px;
+  padding: 10px 18px;
   border-radius: 20px;
-  background: #6a0572;   /* اللون البنفسجي */
-  color: #fff;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.project-link:hover {
-  background: #5a0461; /* أغمق عند Hover */
-  transform: translateY(-2px);
+.project-link.primary {
+  background: var(--color-mauve);
+  color: var(--color-blush);
+  box-shadow: 0 12px 25px var(--shadow-soft);
 }
+
+.project-link.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px var(--shadow-strong);
+}
+
+.project-link.ghost {
+  border: 1px solid var(--border-soft);
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.project-link.ghost:hover {
+  transform: translateY(-3px);
+  border-color: rgba(201, 122, 138, 0.45);
+}
+
+@keyframes fade-up-card {
+  from {
+    opacity: 0;
+    transform: translateY(calc(18px + var(--card-offset, 0)));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(var(--card-offset, 0));
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes card-sheen {
+  0% {
+    transform: translateX(-60%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+}
+
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
@@ -117,8 +298,11 @@
     grid-template-columns: 1fr;
   }
 
-  .tools {
-    flex-direction: column;
-    align-items: flex-start;
+  #projects .container {
+    text-align: left;
+  }
+
+  .project-card {
+    transform: translateY(0);
   }
 }

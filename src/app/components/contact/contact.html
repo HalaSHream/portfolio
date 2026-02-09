@@ -1,51 +1,73 @@
 <section id="contact">
   <div class="container">
-    <h2>Let’s Connect 💕</h2>
+    <div class="contact-header">
+      <h2>Let’s Connect</h2>
+      <p>Have a project idea or want to collaborate? I’d love to hear from you.</p>
+    </div>
 
     <div class="contact-card">
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
+      <div class="contact-intro">
+        <h3>Send a Message</h3>
+        <p>I respond quickly and keep communication clear and professional.</p>
+      </div>
+
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="formData.name"
+          placeholder="Your Name"
+          autocomplete="name"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="formData.email"
+          placeholder="Your Email"
+          autocomplete="email"
+          required
+        />
+        <textarea
+          name="message"
+          [(ngModel)]="formData.message"
+          placeholder="Your Message"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit" [disabled]="isSending || contactForm.invalid" [attr.aria-busy]="isSending">
+          {{ isSending ? 'Sending...' : 'Send Message' }}
+        </button>
+        <p class="form-status success" *ngIf="status === 'success'" aria-live="polite">
+          Message sent successfully. I’ll get back to you soon.
+        </p>
+        <p class="form-status error" *ngIf="status === 'error'" aria-live="polite">
+          Something went wrong while sending. Please try again.
+        </p>
       </form>
+
+      <div class="contact-divider">
+        <span>Or reach me here</span>
+      </div>
 
       <div class="socials">
 
-       <a
-  href="mailto:shreamhla004@gmail.com"
-  class="gmail"
-  aria-label="Gmail"
->
-  <i class="fab fa-google"></i>
-</a>
+        <a href="mailto:shreamhala004@gmail.com" class="gmail" aria-label="Gmail">
+          <i class="fab fa-google"></i>
+        </a>
 
 
 
-        <a
-          href="https://wa.me/972598850826"
-          target="_blank"
-          class="whatsapp"
-          aria-label="WhatsApp"
-        >
+        <a href="https://wa.me/972598850826" target="_blank" class="whatsapp" aria-label="WhatsApp">
           <i class="fab fa-whatsapp"></i>
         </a>
 
-        <a
-          href="https://www.linkedin.com/in/hala-shream-halashream/"
-          target="_blank"
-          class="linkedin"
-          aria-label="LinkedIn"
-        >
+        <a href="https://www.linkedin.com/in/hala-shream-halashream/" target="_blank" class="linkedin"
+          aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
 
-        <a
-          href="https://github.com/HalaSHream"
-          target="_blank"
-          class="github"
-          aria-label="GitHub"
-        >
+        <a href="https://github.com/HalaSHream" target="_blank" class="github" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
       </div>

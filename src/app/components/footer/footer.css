@@ -1,8 +1,8 @@
 .main-footer {
-  background: linear-gradient(135deg, #cdb4db, #ffc8dd, #ffafcc);
+  background: var(--gradient-header);
   padding: 30px 0; /* أقل padding من فوق وتحت */
   margin-top: 0;   /* شلينا الفراغ الكبير بين المحتوى والفوتر */
-  box-shadow: 0 -10px 30px rgba(255, 105, 180, 0.35);
+  box-shadow: 0 -10px 30px var(--shadow-soft);
 }
 
 .main-footer .container {
@@ -15,19 +15,19 @@
 .footer-logo {
   font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-blush);
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
 .footer-logo span {
-  color: #6a0572;
+  color: var(--color-ink);
 }
 
 /* Copyright */
 .copyright {
   font-size: 14px;
-  color: #6a0572;
+  color: var(--color-ink);
   font-weight: 500;
   opacity: 0.9;
   margin: 0; /* لتجنب أي margin إضافي */
@@ -40,7 +40,7 @@
   width: 120px;
   height: 4px;
   margin: 0 auto 20px; /* خط الوسط مع مسافة قليلة تحت */
-  background: linear-gradient(90deg, #ffafcc, #cdb4db);
+  background: linear-gradient(90deg, var(--color-mauve), var(--color-lavender));
   border-radius: 20px;
 }
 
