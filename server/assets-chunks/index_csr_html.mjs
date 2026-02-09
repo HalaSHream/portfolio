@@ -1,0 +1,16 @@
+export default `<!doctype html>
+<html lang="en" data-beasties-container="">
+<head>
+  <meta charset="utf-8">
+  <title>MyPortfolio</title>
+  <base href="/portfolio/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>:root{--color-mauve:#c97a8a;--color-lavender:#9b7ebd;--color-blush:#efe1e5;--color-ink:#2e2e2e;--color-ink-muted:rgba(46, 46, 46, .72);--color-ink-light:rgba(46, 46, 46, .55);--surface:var(--color-blush);--surface-alt:#f4ecee;--glass:rgba(244, 236, 238, .78);--border-soft:rgba(201, 122, 138, .45);--shadow-soft:rgba(46, 46, 46, .18);--shadow-strong:rgba(46, 46, 46, .32);--gradient-soft:linear-gradient(135deg, var(--color-blush), var(--surface-alt));--gradient-accent:linear-gradient(135deg, var(--color-mauve), var(--color-lavender));--gradient-header:linear-gradient( 135deg, var(--color-mauve), var(--color-lavender), var(--surface-alt) )}body{font-family:Arial,sans-serif;margin:0;padding:0;scroll-behavior:smooth;background:var(--surface);color:var(--color-ink)}</style><link rel="stylesheet" href="styles-PACPSDQS.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-PACPSDQS.css"></noscript></head>
+<body ngcm="">
+  <app-root></app-root>
+<script src="main-RJ7JLSDS.js" type="module"></script></body>
+</html>
+`;
