@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#be185d"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="23" fill="#ffffff" opacity="0.08"/>
+
+  <path d="M14 24L8 32l6 8" fill="none" stroke="#f9a8d4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 24l6 8-6 8" fill="none" stroke="#f9a8d4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="20" y="16" width="24" height="24" rx="6" transform="rotate(45 32 28)" fill="url(#gem)"/>
+
+  <circle cx="32" cy="28" r="7.5" fill="none" stroke="#ffffff" stroke-width="3.8"/>
+  <path d="M31 34.8a8.2 8.2 0 1 0 0 16.4a8.2 8.2 0 1 0 0-16.4M34.8 37.4a5.7 5.7 0 1 1 0 11.2a5.7 5.7 0 1 1 0-11.2" fill="#ffffff" fill-rule="evenodd"/>
+
+  <path d="M45 13.8l1.3 2.7 2.9.4-2.1 2 0.5 2.9-2.6-1.4-2.6 1.4 0.5-2.9-2.1-2 2.9-.4z" fill="#ffffff" opacity="0.9"/>
+</svg>
